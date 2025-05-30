@@ -1,48 +1,48 @@
 package Challenge1;
 
-public class Account {
+public class account {
     private double balance;
     private final String owner;
     private double overdraftValue;
     private boolean overdraftActive;
 
-    public Account(double balance, String owner) {
+    public account(double balance, String owner) {
         this.balance = balance;
         this.owner = owner;
         setOverdraftValue();
     }
 
-    void ConsultOwner(){System.out.println("Account owner: " + getOwner());}
+    void consultOwner(){System.out.println("Account owner: " + getOwner());}
 
-    void ConsultBalance(){
+    void consultBalance(){
         System.out.println("Current balance: $" + getBalance());
     }
 
-    void ConsultOverdraftValue(){System.out.println("Current overdraft protection value: $" + getOverdraftValue());}
+    void consultOverdraftValue(){System.out.println("Current overdraft protection value: $" + getOverdraftValue());}
 
-    void Deposit(double amount){
+    void deposit(double amount){
         balance = balance + amount;
         System.out.println("Successfully deposited $" + amount);
-        ConsultBalance();
+        consultBalance();
     }
 
-    void Withdraw(double amount){
+    void withdraw(double amount){
         if (balance >= amount) {
             balance = balance - amount;
             System.out.println("Successfully withdrawn $" + amount);
-            ConsultBalance();
+            consultBalance();
         }else{
             System.out.println("Insufficient balance to withdraw.");
         }
     }
 
-    void PayBill(double amount){
+    void payBill(double amount){
         balance = balance - amount;
         System.out.println("Successfully payed the $" + amount + "Bill.");
-        ConsultBalance();
+        consultBalance();
     }
 
-    void ConsultOverdraftUse(){
+    void consultOverdraftUse(){
         if (overdraftActive){
             System.out.println("This account is using an overdraft protection.");
         } else {
@@ -50,13 +50,13 @@ public class Account {
         }
     }
 
-    void UseOverdraft(){
+    void useOverdraft(){
         balance = balance + overdraftValue;
         overdraftActive = true;
         System.out.println("Your $" + overdraftValue + " overdraft protection has been activated.");
         balance = balance - (overdraftValue *0.2);
         System.out.println("A 20% fee ($"+ overdraftValue *0.2+") was issued from your balance.");
-        ConsultBalance();
+        consultBalance();
     }
 
     private double getBalance() {

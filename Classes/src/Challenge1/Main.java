@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
 
-        menu.Start();
+        menu.run();
         System.out.println("Thanks for using the application!");
     }
 }
